@@ -12,7 +12,7 @@ def menu(numvar):
             if choice == 2: #Recebe que o usuário quer digitar a expressão
                 A = True
                 B = True
-                print('Agora você irá digitar a expressão lógica.\nPara isso, utilize:\n. = and\n+ = or\n´ (Antes do Valor) = not\nAlém disso, utilize A e B para as variáveis.')
+                print('Agora você irá digitar a expressão lógica.\nPara isso, utilize:\n. = and\n( = Abre Parêntese\n) = Fecha Parêntese\n+ = or\n´ (Antes do Valor) = not\nAlém disso, utilize A e B para as variáveis.')
                 expr = str(input('Digite a expressão lógica: ')).strip()
                 exprL = list()
                 for i in range(len(expr)):
@@ -60,17 +60,17 @@ def karnaugh2(s1, s2, s3, s4):
         if i == 4:
             print(f' 1|   {s3}     {s1}')
     simplified = list()
-    if s1 == s2 and s1 != False:
-        simplified.append(' B')
-        simplified.append(' or ')
     if s1 == s3 and s1 != False:
         simplified.append(' A') 
         simplified.append(' or ')
-    if s3 == s4 and s3 != False:
-        simplified.append(' not B ')
+    if s1 == s2 and s1 != False:
+        simplified.append(' B')
         simplified.append(' or ')
     if s4 == s2 and s2 != False:
         simplified.append(' not A ')
+        simplified.append(' or ')
+    if s3 == s4 and s3 != False:
+        simplified.append(' not B ')
         simplified.append(' or ')
     if s1 == True and s2 == False and s3 == False and s4 == False:
         simplified.append('A and B')
