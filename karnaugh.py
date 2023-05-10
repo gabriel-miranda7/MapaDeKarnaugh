@@ -80,8 +80,8 @@ def karnaugh2(s1, s2, s3, s4):
         simplified.append('A and not B')
     if s4 == True and s2 == False and s3 == False and s1 == False:
         simplified.append('not A and not B')
-    #if simplified[len(simplified)-1] == 'or':
-        #simplified.pop()
+    if simplified[len(simplified)-1] == ' or ':
+        simplified.pop()
     simplifiedx = ''.join(simplified)
     print('')
     print('A expressão mais simplificada é: ', simplifiedx)
